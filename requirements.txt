@@ -1,0 +1,10 @@
+# auTO requirements #
+Flask
+
+# challonge + deps #
+python-dateutil
+iso8601
+-e git+http://github.com/russ-/pychallonge#egg=pychallonge
+
+# raspi deps #
+pibrella
