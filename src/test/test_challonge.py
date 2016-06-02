@@ -21,3 +21,7 @@ class TestChallonge(unittest.TestCase):
         test_players = ['DTMP', 'zaxtorp', 'hamroctopus', 'davethecust']
         for player in participants:
             self.assertIn(player['name'], test_players)
+
+
+if __name__ == '__main__':
+    unittest.main()
