@@ -13,7 +13,8 @@ Automatic Tournament Organizer
 
 TODO: continuous integration
 
-TODO: table of contents
+.. contents::
+   :depth: 2
 
 Overview
 --------
