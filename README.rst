@@ -4,14 +4,15 @@ Automatic Tournament Organizer
 .. image:: https://badge.fury.io/gh/ericcrosson%2Fauto.svg
    :alt: Semantic versioning
    :target: https://badge.fury.io/gh/ericcrosson%2Fauto
+.. image:: https://travis-ci.org/EricCrosson/auTO.svg?branch=master
+   :alt: Travis Continuous Integration
+   :target: https://travis-ci.org/EricCrosson/auTO/
 .. image:: https://badges.gitter.im/EricCrosson/auTO.svg
    :alt: Join the chat at https://gitter.im/EricCrosson/auTO
    :target: https://gitter.im/EricCrosson/auTO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 .. image:: http://www.gnu.org/graphics/gplv3-88x31.png
    :alt: Free Software
    :target: http://www.gnu.org/licenses/gpl-3.0.en.html
-
-TODO: continuous integration
 
 .. contents::
    :depth: 2
