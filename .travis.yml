@@ -9,3 +9,6 @@ before_install:
 
 script:
   - python src/test/*
+
+after_success:
+  - find . -type f -name '*.py' -exec pep8 {} \;

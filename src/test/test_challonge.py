@@ -1,8 +1,13 @@
+#!/usr/bin/env python
+# Written by davethecust
+# 2016-06-03
+
 import challonge
 import unittest
 
 
 class TestChallonge(unittest.TestCase):
+
     def setUp(self):
         self.api_username = 'davethecust'
         self.api_key = 'bMSeYjdu2GA5CtC4Dc3dPz8l6C1VgS4x5bpnV4cv'

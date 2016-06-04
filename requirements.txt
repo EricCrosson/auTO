@@ -6,5 +6,5 @@ python-dateutil
 iso8601
 -e git+http://github.com/russ-/pychallonge#egg=pychallonge
 
-# raspi deps #
-pibrella
+# code maintenance
+pep8
