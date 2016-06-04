@@ -10,11 +10,11 @@ Automatic Tournament Organizer
 .. image:: https://badges.gitter.im/EricCrosson/auTO.svg
    :alt: Join the chat at https://gitter.im/EricCrosson/auTO
    :target: https://gitter.im/EricCrosson/auTO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-.. image:: http://www.gnu.org/graphics/gplv3-88x31.png
-   :alt: Free Software
-   :target: http://www.gnu.org/licenses/gpl-3.0.en.html
+.. image:: http://www.gnu.org/graphics/agplv3-88x31.png
+   :alt: GNU Affero General Public License
+   :target: http://www.gnu.org/licenses/agpl-3.0.en.html
 
-.. contents::
+.. contents:: 
    :depth: 2
 
 Overview
