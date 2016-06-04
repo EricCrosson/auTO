@@ -54,6 +54,6 @@ Under development.
 License
 -------
 
-This repository is licensed under the GPLv3_ without a warranty of any kind.
+This repository is licensed under the AGPLv3_ without a warranty of any kind.
 
-.. _GPLv3: http://www.gnu.org/licenses/gpl-3.0.en.html
+.. _AGPLv3: http://www.gnu.org/licenses/agpl-3.0.en.html
