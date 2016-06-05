@@ -10,8 +10,8 @@ before_install:
   - pip install -r requirements.txt
 
 script:
-  - python src/test/*
+  - python doc/src/test/*
 
 after_success:
-  - find . -type f -name '*.py' -exec pep8 {} \;
+  - find doc/src -type f -name '*.py' -exec pep8 {} \;
   - make -C doc/dot
