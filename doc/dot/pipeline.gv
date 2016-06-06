@@ -1,7 +1,3 @@
-# Written by Eric Crosson
-# 2016-06-04
-# $ dot -Gsplines=none test.gv | neato -n -Gsplines=ortho -Tpng -otest.png
-
 digraph G {
 
     graph [rankdir = LR, splines=ortho];
@@ -37,12 +33,10 @@ digraph G {
                   ];
     } 
 
-    # Set edge label font size
     edge [ fontsize=10 ];
 
 
 
-    # Setup (registration)
     Users -> Client [ label="- tag of participant\n- notification preferences" ];
 
     Client -> Server [ label="- tag of participant\n- notification preferences" ];    
@@ -51,19 +45,12 @@ digraph G {
 
 
 
-    # Steady-state (matches in progress)
-    # TODO: why is this label atop the edge? 
-    #       the other User -> Client label is below
     Users -> Client [ label="- tag of winner\n- total wins" ];
 
-    # TODO: why is this label atop the edge? 
-    #       the other User -> Client label is below
     Client -> Server [ label="- tag of winner\n- total wins" ];
 
     Server -> Notifier [ label="- tag of new contenders" ];
-    # TODO: answer question 1
     Server -> Challonge [ label="- updated match info?" ];
 
-    # TODO: update as challonge situation becomes clearer
     Challonge -> Server [ label="- new contenders" ];
 }
