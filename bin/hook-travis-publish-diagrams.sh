@@ -21,9 +21,9 @@ git clone --depth 1 --quiet --branch=diagrams https://${GH_TOKEN}@github.com/eri
 
 # Commit and push changes
 cd $HOME/auto
-cp -f README* $HOME/diagrams
+cp -fv README* $HOME/diagrams
 git rm -rf *
-cp -Rf $HOME/diagrams/* ./
+cp -Rfv $HOME/diagrams/* ./
 git add -f .
 git commit -m "Latest diagrams from successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to diagrams"
 git push -fq origin diagrams > /dev/null
