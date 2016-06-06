@@ -3,7 +3,7 @@
 # 2016-04-26
 
 # Exit under these circumstances -- when we don't care about publishing diagrams
-if [[ "$TRAVIS_REPO_SLUG" != "ericcrosson/auto" || \
+if [[ "$TRAVIS_REPO_SLUG" != "EricCrosson/auTO" || \
             "$TRAVIS_PULL_REQUEST" != "false" || \
             "$TRAVIS_BRANCH" != "master" ]]; then
     echo "Quitting $0"
