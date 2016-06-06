@@ -10,6 +10,7 @@ before_install:
   - pip install --upgrade pip
   - pip install iso8601
   - pip install -r requirements.txt
+  - pip install -e .
   - sudo apt-get update -qq
   - sudo apt-get install -qq gdebi
   - wget -O $HOME/graphviz-2.38.0.deb http://www.graphviz.org/pub/graphviz/stable/ubuntu/ub12.04/x86_64/graphviz_2.38.0-1~precise_amd64.deb
@@ -20,13 +21,14 @@ before_install:
   - dot -V
 
 script:
-  - python doc/src/test/*
-  - find doc/src -type f -name '*.py' -exec pep8 {} \;
+  - coverage run --source=autoto setup.py test
+  - find autoto -type f -name '*.py' -exec pep8 {} \;
   - make -C doc/dot
 
 after_success:
   - mkdir $HOME/diagrams && cp -fv doc/dot/*.png $HOME/diagrams
   - bin/hook-travis-publish-diagrams.sh
+  - coveralls
 
 env:
   global:

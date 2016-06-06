@@ -8,3 +8,5 @@ iso8601
 
 # code maintenance
 pep8
+python-coveralls
+coverage
