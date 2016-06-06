@@ -27,6 +27,7 @@ script:
 after_success:
   - mkdir $HOME/diagrams && cp -fv doc/dot/*.png $HOME/diagrams
   - bin/hook-travis-publish-diagrams.sh
+  - coveralls
 
 env:
   global:
