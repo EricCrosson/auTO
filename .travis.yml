@@ -14,7 +14,7 @@ before_install:
   - sudo apt-get install -qq gdebi
   - wget -O $HOME/graphviz-2.38.0.deb http://www.graphviz.org/pub/graphviz/stable/ubuntu/ub12.04/x86_64/graphviz_2.38.0-1~precise_amd64.deb
   - wget -O $HOME/libgraphviz4.deb http://www.graphviz.org/pub/graphviz/stable/ubuntu/ub12.04/x86_64/libgraphviz4_2.38.0-1~precise_amd64.deb
-  - sudo apt-get remove libcdt4 libpathplan4
+  - sudo apt-get remove libcdt4 libpathplan4 libxdot4
   - yes | gdebi $HOME/libgraphviz4.deb
   - yes | gdebi $HOME/graphviz-2.38.0.deb
   - dot -V
