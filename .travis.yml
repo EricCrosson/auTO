@@ -10,9 +10,12 @@ before_install:
   - pip install --upgrade pip
   - pip install iso8601
   - pip install -r requirements.txt
-  - wget -O $HOME/graphviz-2.38.0.deb http://www.graphviz.org/pub/graphviz/stable/ubuntu/ub12.04/x86_64/graphviz_2.38.0-1~precise_amd64.deb
-  - sudo dpkg -i $HOME/graphviz-2.38.0.deb
-  - sudo apt-get install -qq -f
+  - sudo apt-add-repository ppa:dperry/ppa-graphviz-test
+  - sudo apt-get update
+  - sudo apt-get autoremove graphviz
+  - sudo apt-get remove libcdt4
+  - sudo apt-get remove libpathplan4
+  - sudo apt-get install graphviz
 
 script:
   - python doc/src/test/*
