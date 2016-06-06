@@ -10,7 +10,7 @@ before_install:
   - pip install --upgrade pip
   - pip install iso8601
   - pip install -r requirements.txt
-  - sudo apt-add-repository ppa:dperry/ppa-graphviz-test
+  - sudo apt-add-repository ppa:gvis-adam/graphviz-dev
   - sudo apt-get update
   - sudo apt-get autoremove graphviz
   - sudo apt-get remove libcdt4
