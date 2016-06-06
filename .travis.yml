@@ -22,7 +22,7 @@ before_install:
 
 script:
   - coverage run --source=autoto setup.py test
-  - find doc/src -type f -name '*.py' -exec pep8 {} \;
+  - find autoto -type f -name '*.py' -exec pep8 {} \;
   - make -C doc/dot
 
 after_success:
