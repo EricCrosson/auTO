@@ -11,11 +11,13 @@ before_install:
   - pip install iso8601
   - pip install -r requirements.txt
   - sudo apt-add-repository ppa:gvis-adam/graphviz-dev
-  - sudo apt-get update
-  - sudo apt-get autoremove graphviz
-  - sudo apt-get remove libcdt4
-  - sudo apt-get remove libpathplan4
-  - sudo apt-get install graphviz
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq gdebi
+  - wget -O $HOME/graphviz-2.38.0.deb http://www.graphviz.org/pub/graphviz/stable/ubuntu/ub12.04/x86_64/graphviz_2.38.0-1~precise_amd64.deb
+  - wget -O $HOME/libgraphviz4.deb http://www.graphviz.org/pub/graphviz/stable/ubuntu/ub12.04/x86_64/libgraphviz4_2.38.0-1~precise_amd64.deb
+  - yes | gdebi $HOME/libgraphviz4.deb
+  - yes | gdebi $HOME/graphviz-2.38.0.deb
+  - dot -V
 
 script:
   - python doc/src/test/*
