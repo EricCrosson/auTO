@@ -21,6 +21,7 @@ git clone --depth 1 --quiet --branch=diagrams https://${GH_TOKEN}@github.com/eri
 
 # Commit and push changes
 cd $HOME/auto
+cp -f README* $HOME/diagrams
 git rm -rf *
 cp -Rf $HOME/diagrams/* ./
 git add -f .
