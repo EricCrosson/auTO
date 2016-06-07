@@ -13,7 +13,7 @@ Automatic Tournament Organizer
 .. image:: https://badges.gitter.im/EricCrosson/auTO.svg
    :alt: Join the chat at https://gitter.im/EricCrosson/auTO
    :target: https://gitter.im/EricCrosson/auTO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-.. image:: http://www.gnu.org/graphics/agplv3-88x31.png
+.. image:: https://img.shields.io/:license-agpl3-blue.svg
    :alt: GNU Affero General Public License
    :target: http://www.gnu.org/licenses/agpl-3.0.en.html
 
