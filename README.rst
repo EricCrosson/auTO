@@ -10,12 +10,12 @@ Automatic Tournament Organizer
 .. image:: https://badge.fury.io/gh/ericcrosson%2Fauto.svg
    :alt: Semantic versioning
    :target: https://badge.fury.io/gh/ericcrosson%2Fauto
-.. image:: https://badges.gitter.im/EricCrosson/auTO.svg
-   :alt: Join the chat at https://gitter.im/EricCrosson/auTO
-   :target: https://gitter.im/EricCrosson/auTO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 .. image:: https://img.shields.io/:license-agpl3-blue.svg
    :alt: GNU Affero General Public License
    :target: http://www.gnu.org/licenses/agpl-3.0.en.html
+.. image:: https://badges.gitter.im/EricCrosson/auTO.svg
+   :alt: Join the chat at https://gitter.im/EricCrosson/auTO
+   :target: https://gitter.im/EricCrosson/auTO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 .. contents:: 
    :depth: 2
