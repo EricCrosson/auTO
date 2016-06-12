@@ -3,12 +3,16 @@
 # 2016-06-03
 
 import challonge
+import configparser
 from flask import Flask, request
 from flask.ext.api import status
 
-api_email = 'davethecust'
-api_key = 'bMSeYjdu2GA5CtC4Dc3dPz8l6C1VgS4x5bpnV4cv'
-tournament_url = '42k5wcre'
+config = configparser.ConfigParser()
+config.read('autoto.cfg')
+
+api_email = config['api']['username']
+api_key = config['api']['api_key']
+tournament_url = config['tournament']['url']
 
 
 challonge.set_credentials(api_email, api_key)
