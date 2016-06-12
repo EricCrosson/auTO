@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# Written by davethecust
+# 2016-06-03
+
 import challonge
 from flask import Flask, request
 
