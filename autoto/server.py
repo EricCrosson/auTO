@@ -64,13 +64,13 @@ def sync_state():
     for match in challonge.matches.index(tournament_id):
         if match['state'] == 'open':
             matches.append({
-                           'match_id': match['id'],
-                           'player1': (players[match['player1-id']],
-                                       match['player1-id']),
-                           'player2': (players[match['player2-id']],
-                                       match['player2-id']),
-                           'started_at': match['started-at']
-                            })
+                'match_id': match['id'],
+                'player1': (players[match['player1-id']],
+                            match['player1-id']),
+                'player2': (players[match['player2-id']],
+                            match['player2-id']),
+                'started_at': match['started-at']
+            })
 
 
 def configure():

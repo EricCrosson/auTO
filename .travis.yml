@@ -1,0 +1,36 @@
+---
+language: python
+python: 3.5
+
+branches:
+  except:
+  - diagrams
+
+before_install:
+  - pip install --upgrade pip
+  - pip install iso8601
+  - pip install -r requirements.txt
+  - pip install -e .
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq gdebi
+  - wget -O $HOME/graphviz-2.38.0.deb http://www.graphviz.org/pub/graphviz/stable/ubuntu/ub12.04/x86_64/graphviz_2.38.0-1~precise_amd64.deb
+  - wget -O $HOME/libgraphviz4.deb http://www.graphviz.org/pub/graphviz/stable/ubuntu/ub12.04/x86_64/libgraphviz4_2.38.0-1~precise_amd64.deb
+  - sudo apt-get remove libcdt4 libpathplan4 libxdot4
+  - yes | sudo gdebi $HOME/libgraphviz4.deb
+  - yes | sudo gdebi $HOME/graphviz-2.38.0.deb
+  - dot -V
+
+script:
+  - coverage run --source=autoto setup.py test
+  - find autoto -type f -name '*.py' -exec pep8 {} \;
+  - make -C doc/dot
+
+after_success:
+  - mkdir $HOME/diagrams && cp -fv doc/dot/*.png $HOME/diagrams
+  - bin/hook-travis-publish-diagrams.sh
+  - coveralls
+
+env:
+  global:
+  - GH_REF: github.com/ericcrosson/auto.git
+  - secure: Bec2i8J4e0eX/frXi4FxS6URAjZUJITo5tSIJ11HImzkO5YDoucOqCA9qN7zCMSDbDWw4AzKlcAz5q8WbTV1j6WZAg5xhv+IRy4Fv3BgcmhJVIpQqautGM5ICIIGjV9X5OyPkNWa2qs/38gxgERN5jQ+lGHhTaNCe9rs1Cb55iKNGF1k0H3vjONL9MqsMRHJQf51xMVK8gxRpzNVqpK8M7cLBmLPw0GlrMbudNR2OhOBIG2qrwaZ5HiaE/JHXLxjb7Aswx3MCgsN9NCdBP6DtMCxa0yMq8HxakT13xZW43cfT867rAAInfKItMUX8OR2BQ0tF+x0GqjQxLu6i8iHs5NwMk44yfw0/MOIwrBLHVkHYheQD/AAh7ydhbAP2wmG8JjNieeP40frLKGstN7vnSkwVjfiF0Ccx78/wDCaZyj+KdBwyQhgLLtCNvu3IVTDVVqgBRHY0tuBuXz4Vt6g57V+9StR5D8v8EylfdID0JOKQe4K9FwjkxoaJypTi2IeET5uf+b9q+9Z0HqNXwv6knUVbthtmrodA8ddbb2Ts4lU8nojmvR4Sws/grUMDWYsOX4jWbbIwl5Yvj3wmGPOUEgbt/laDhKJfrzhMcnyBNq7lAKT3evZyOQGZWNmJaSjPR8/y32W09izgxCExgB+ZbhFuask9ez+EuH/FuHuEyU=

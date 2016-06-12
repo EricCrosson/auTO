@@ -1,0 +1,56 @@
+digraph G {
+
+    graph [rankdir = LR, splines=ortho];
+    node[shape=record];
+
+    Users [ label=<Users<BR />
+                  <FONT POINT-SIZE="10">tournament participants</FONT>>
+          , height=2
+          ];
+
+    subgraph cluster_client {
+        label="TO's Laptop";
+        
+        Client [ label=<Client<BR />
+                       <FONT POINT-SIZE="10">reactjs</FONT>>
+               , height=2
+               ];
+        Server [ label=<Server<BR />
+                              <FONT POINT-SIZE="10">Flask (py)</FONT>>
+               , height=2
+               ];
+
+        Notifier [ label=<Notifier<BR />
+                         <FONT POINT-SIZE="10">Flask (python)</FONT>>
+                 ];
+    }
+
+    subgraph cluster_challonge {
+        label="Challonge Black Box";
+        
+        Challonge [ label=<Challonge<BR />
+                          <FONT POINT-SIZE="10">possibly custom-wrapped</FONT>>
+                  ];
+    } 
+
+    edge [ fontsize=10 ];
+
+
+
+    Users -> Client [ label="- tag of participant\n- notification preferences" ];
+
+    Client -> Server [ label="- tag of participant\n- notification preferences" ];    
+
+    Server -> Challonge [ label="- all tournament participants" ];
+
+
+
+    Users -> Client [ label="- tag of winner\n- total wins" ];
+
+    Client -> Server [ label="- tag of winner\n- total wins" ];
+
+    Server -> Notifier [ label="- tag of new contenders" ];
+    Server -> Challonge [ label="- updated match info?" ];
+
+    Challonge -> Server [ label="- new contenders" ];
+}
