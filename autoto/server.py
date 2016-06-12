@@ -4,6 +4,7 @@
 
 import challonge
 from flask import Flask, request
+from flask.ext.api import status
 
 api_email = 'davethecust'
 api_key = 'bMSeYjdu2GA5CtC4Dc3dPz8l6C1VgS4x5bpnV4cv'
@@ -62,6 +63,7 @@ def state_dump():
 
     sync_state()
 
+    return '', status.HTTP_200_OK
 
 def sync_state():
     global matches
