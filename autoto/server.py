@@ -38,11 +38,10 @@ app = Flask('auTO')
 # where for example, tag = hamroctopus, games won = 3, games lost = 1
 # in the front end we put together a json object that is similar to the above
 #
-# challonge api weird thing, if player two wins, we need to reverse the games won
-# when updating the match, you have to do things centric to player one
-# this explanation probably doesn't make sense,
-# please see the challonge api reference -
-#   http://api.challonge.com/v1/documents/matches/update
+# challonge api weird thing, if player two wins, we need to reverse the games
+# won when updating the match, you have to do things centric to player one this
+# explanation probably doesn't make sense, please see the challonge api
+# reference - http://api.challonge.com/v1/documents/matches/update
 
 @app.route('/dump', methods=['PUT'])
 def state_dump():
@@ -68,6 +67,7 @@ def state_dump():
     sync_state()
 
     return '', status.HTTP_200_OK
+
 
 def sync_state():
     global matches
