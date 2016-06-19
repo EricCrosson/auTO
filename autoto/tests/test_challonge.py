@@ -16,7 +16,7 @@ class TestChallonge(unittest.TestCase):
         challonge.set_credentials(self.api_username, self.api_key)
 
         self.t = challonge.tournaments.create('AuTO Test Tournament',
-                                                    'autotest')
+                                              'autotest')
         self.p1 = challonge.participants.create(self.t['id'],
                                                 'DTMP')
         self.p2 = challonge.participants.create(self.t['id'],
