@@ -3,19 +3,15 @@
 # 2016-06-03
 
 import challonge
-import configparser
+import os
 import unittest
 
 
 class TestChallonge(unittest.TestCase):
 
     def setUp(self):
-        config = configparser.ConfigParser()
-
-        config.read('autoto/tests/test.cfg')
-
-        self.api_username = config['api']['username']
-        self.api_key = config['api']['api_key']
+        self.api_username = os.environ('CHALLONGE_USERNAME')
+        self.api_key = os.environ('CHALLONGE_API_KEY')
 
         challonge.set_credentials(self.api_username, self.api_key)
 
