@@ -1,10 +1,14 @@
 ---
 language: python
 python: 3.5
+sudo: required
+
+services:
+  - docker
 
 branches:
   except:
-  - diagrams
+    - diagrams
 
 before_install:
   - pip install --upgrade pip
