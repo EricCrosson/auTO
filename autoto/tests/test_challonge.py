@@ -10,8 +10,8 @@ import unittest
 class TestChallonge(unittest.TestCase):
 
     def setUp(self):
-        self.api_username = os.environ('CHALLONGE_USERNAME')
-        self.api_key = os.environ('CHALLONGE_API_KEY')
+        self.api_username = os.environ['CHALLONGE_USERNAME']
+        self.api_key = os.environ['CHALLONGE_API_KEY']
 
         challonge.set_credentials(self.api_username, self.api_key)
 
