@@ -9,7 +9,7 @@ from flask.ext.api import status
 
 api_email = os.environ['CHALLONGE_USERNAME']
 api_key = os.environ['CHALLONGE_API_KEY']
-tournament_url = os.environ['TOURNAMENT_URL']
+tournament_url = os.environ['CHALLONGE_TOURNAMENT_URL']
 
 
 challonge.set_credentials(api_email, api_key)
