@@ -4,7 +4,11 @@
 
 import challonge
 import os
+import random
+import string
 import unittest
+
+
 
 
 class TestChallonge(unittest.TestCase):
@@ -16,7 +20,11 @@ class TestChallonge(unittest.TestCase):
         challonge.set_credentials(self.api_username, self.api_key)
 
         self.t = challonge.tournaments.create('AuTO Test Tournament',
-                                                    'autotest')
+                                              "autoto_" + "".join(
+                                                  random.choice(
+                                                      string.ascii_lowercase)
+                                                  for _ in range(0, 15)))
+
         self.p1 = challonge.participants.create(self.t['id'],
                                                 'DTMP')
         self.p2 = challonge.participants.create(self.t['id'],
