@@ -1,7 +1,6 @@
 # auTO requirements #
 Flask
 flask-api
-configparser
 
 # challonge + deps #
 python-dateutil
