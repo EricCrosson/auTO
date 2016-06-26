@@ -6,4 +6,8 @@
 
 # Python egg metadata, regenerated from source files by setuptools
 /*.egg-info
+/.idea
 /.coverage
+*.cfg
+/autoto/tests/test.cfg
+/.eggs

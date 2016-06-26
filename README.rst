@@ -52,7 +52,18 @@ Under development.
 Usage
 -----
 
-Under development.
+In the root of auTO, create a config file named 'autoto.cfg'.
+It's contents **must** be the following:
+[api]
+username = your_challonge_username
+api_key = your_challonge_api_key
+
+[tournament]
+url = your_tournament_url*
+
+*note: your tournament url comes after the slash when you create a challonge tournament
+       for example:
+       tournament url = example, when your challonge tournament is at 'user.challonge.com/example'
 
 License
 -------

@@ -17,6 +17,7 @@ before_install:
   - pip install -e .
 
 script:
+  - python autoto/server.py &
   - coverage run --source=autoto setup.py test
   - find autoto -type f -name '*.py' -exec pep8 {} \;
   - docker run -v $(pwd)/doc/dot:/data hamroctopus/graphviz:2.38.0
