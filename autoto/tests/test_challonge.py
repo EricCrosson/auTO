@@ -9,26 +9,20 @@ import string
 import unittest
 
 
-
-
 class TestChallonge(unittest.TestCase):
-
     def setUp(self):
         self.api_username = os.environ['CHALLONGE_USERNAME']
         self.api_key = os.environ['CHALLONGE_API_KEY']
 
         challonge.set_credentials(self.api_username, self.api_key)
 
-        self.t = challonge.tournaments.create('AuTO Test Tournament',
-                                              "autoto_" + "".join(
-                                                  random.choice(
-                                                      string.ascii_lowercase)
-                                                  for _ in range(0, 15)))
+        self.t = challonge.tournaments.create(
+            'AuTO Test Tournament',
+            "autoto_" + "".join(random.choice(string.ascii_lowercase)
+                                for _ in range(0, 15)))
 
-        self.p1 = challonge.participants.create(self.t['id'],
-                                                'DTMP')
-        self.p2 = challonge.participants.create(self.t['id'],
-                                                'hamroctopus')
+        self.p1 = challonge.participants.create(self.t['id'], 'DTMP')
+        self.p2 = challonge.participants.create(self.t['id'], 'hamroctopus')
         challonge.tournaments.start(self.t['id'])
 
     def tearDown(self):
@@ -59,11 +53,9 @@ class TestChallonge(unittest.TestCase):
         final_match = matches[0]
         self.assertEqual(final_match["state"], "open")
 
-        challonge.matches.update(
-                self.t["id"],
-                final_match["id"],
-                **{'scores_csv': '3-2',
-                   'winner_id': final_match["player1-id"]})
+        challonge.matches.update(self.t["id"], final_match["id"],
+                                 **{'scores_csv': '3-2',
+                                    'winner_id': final_match["player1-id"]})
 
         m = challonge.matches.show(self.t["id"], final_match["id"])
         self.assertEqual(m["state"], "complete")
