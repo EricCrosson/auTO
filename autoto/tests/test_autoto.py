@@ -12,23 +12,18 @@ from flask import request
 
 
 class TestAutoTO(unittest.TestCase):
-
     def setUp(self):
-	    self.api_username = os.environ['CHALLONGE_USERNAME']
-	    self.api_key = os.environ['CHALLONGE_API_KEY']
+        self.api_username = os.environ['CHALLONGE_USERNAME']
+        self.api_key = os.environ['CHALLONGE_API_KEY']
 
-	    challonge.set_credentials(self.api_username, self.api_key)
-	    self.t = challonge.tournaments.create('AuTO Test Tournament',
-                                              "autoto_" + "".join(
-                                                  random.choice(
-                                                      string.ascii_lowercase)
-                                                  for _ in range(0, 15)))
-	    self.p1 = challonge.participants.create(self.t['id'],
-	                                            'DTMP')
-	    self.p2 = challonge.participants.create(self.t['id'],
-	                                            'hamroctopus')
-	    challonge.tournaments.start(self.t['id'])
-
+        challonge.set_credentials(self.api_username, self.api_key)
+        self.t = challonge.tournaments.create(
+            'AuTO Test Tournament',
+            "autoto_" + "".join(random.choice(string.ascii_lowercase)
+                                for _ in range(0, 15)))
+        self.p1 = challonge.participants.create(self.t['id'], 'DTMP')
+        self.p2 = challonge.participants.create(self.t['id'], 'hamroctopus')
+        challonge.tournaments.start(self.t['id'])
 
     def tearDown(self):
         challonge.tournaments.destroy(self.t['id'])
