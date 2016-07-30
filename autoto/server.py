@@ -4,7 +4,7 @@
 
 import challonge
 import os
-from flask import Flask, request
+from flask import Flask, request, render_template, jsonify
 from flask.ext.api import status
 
 api_email = os.environ['CHALLONGE_USERNAME']
@@ -21,6 +21,13 @@ matches = []
 
 app = Flask('auTO')
 
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+@app.route('/matches', methods=['GET'])
+def _matches():
+    return jsonify({'matches': matches})
 
 # method takes in a state from the tournament and updates challonge
 # state_dump should be passed the following data via http PUT
@@ -69,13 +76,37 @@ def state_dump():
 def sync_state():
     global matches
     for match in challonge.matches.index(tournament_id):
-        if match['state'] == 'open':
+        if match['state'] == 'open' or \
+        match['player1-id'] is not None or \
+        match['player2-id'] is not None:
+            player1_id = match['player1-id']
+            player2_id = match['player2-id']
+
+            if player1_id:
+                player1 = players[player1_id]
+            else:
+                prereq_match = challonge.matches.show(
+                    tournament_id,
+                    match['player1-prereq-match-id'])
+                prefix = 'Loser' if prereq_match['player1-is-prereq-match-loser'] \
+                          else 'Winner'
+                player1 = prefix + ' of ' + prereq_match['identifier']
+
+            if player2_id:
+                player2 = players[player2_id]
+            else:
+                prereq_match = challonge.matches.show(
+                    tournament_id,
+                    match['player2-prereq-match-id'])
+                prefix = 'Loser' if prereq_match['player2-is-prereq-match-loser'] \
+                          else 'Winner'
+                player2 = prefix + ' of ' + prereq_match['identifier']
+
             matches.append({
                 'match_id': match['id'],
-                'player1': (players[match['player1-id']],
-                            match['player1-id']),
-                'player2': (players[match['player2-id']],
-                            match['player2-id']),
+                'bracket_position': match['identifier'],
+                'player1': (player1, player1_id),
+                'player2': (player2, player2_id),
                 'started_at': match['started-at']
             })
 

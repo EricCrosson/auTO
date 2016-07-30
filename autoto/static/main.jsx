@@ -6,8 +6,19 @@ class MatchTable extends React.Component {
 
   render() {
     var rows = [];
+    var i = 1;
+    var setup = '';
+
     this.props.matches.forEach(function(match) {
-      rows.push(<MatchRow bracketPosition={match.bracketPosition} player1={match.player1} player2={match.player2} setup={match.setup} key={match.bracketPosition} />); 
+      if (i < 7) {
+        setup = i;
+        i++;
+      }
+      else {
+        setup = ''; 
+      }
+      
+      rows.push(<MatchRow bracketPosition={match.bracket_position} player1={match.player1[0]} player2={match.player2[0]} setup={setup} key={match.match_id} />); 
     });
     return (
       <div>
@@ -34,12 +45,14 @@ class MatchTable extends React.Component {
 class MatchRow extends React.Component {
   constructor() {
     super();
-    this.state = {
-      data: {}
-    }
   }
 
   render() {
+    var button;
+    if (this.props.setup) {
+      button = <td><button>Submit</button></td>
+    }
+    
     return (
       <tr>
         <td>{ this.props.bracketPosition }</td>
@@ -48,19 +61,25 @@ class MatchRow extends React.Component {
         <td>{ this.props.player2 }</td>
         <td> <input placeholder="Enter result"/> </td>
         <td>{ this.props.setup }</td>
-        <td><button>Submit</button></td>
+        { button }
       </tr>
     );
   }
 }
 
 
-var MATCHES = [
-  {bracketPosition: 'W1', player1: 'DTMP', player2: 'Zaxtorp', setup: '2'},
-  {bracketPosition: 'WF', player1: 'Tirno', player2: 'Zaxtorp', setup: '1'},
-];
+//var MATCHES = [
+//  {bracketPosition: 'W1', player1: 'DTMP', player2: 'Zaxtorp', setup: '2'},
+//  {bracketPosition: 'WF', player1: 'Tirno', player2: 'Zaxtorp', setup: '1'},
+//];
 
-ReactDOM.render(
-  <MatchTable matches={MATCHES} />,
-  document.getElementById('content')
-);
+var MATCHES = [];
+$.get('/matches', function( data ){
+  MATCHES = data['matches'];
+  console.log(MATCHES);
+
+  ReactDOM.render(
+    <MatchTable matches={MATCHES} />,
+    document.getElementById('content')
+  );
+});

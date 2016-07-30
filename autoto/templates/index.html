@@ -4,7 +4,8 @@
   <head>
     <meta charset="utf-8" />
     <title>A U T O T O T O T O T O T O </title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     <script src="https://fb.me/react-15.3.0.js"></script>
     <script src="https://fb.me/react-dom-15.3.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
@@ -15,7 +16,7 @@
           <h2> T O </h2>
       </div>
       <div id="content"></div>
-      <script type="text/babel" src="main.jsx"></script>
+      <script type="text/babel" src="{{ url_for('static', filename='main.jsx') }}"></script>
       <footer style="width:100%; text-align:center; position:absolute; bottom:0;">
           <span> davethecust & hamroctopus </span>
       </footer>
