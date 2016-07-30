@@ -88,7 +88,7 @@ def sync_state():
                 prereq_match = challonge.matches.show(
                     tournament_id,
                     match['player1-prereq-match-id'])
-                prefix = 'Loser' if prereq_match['player1-is-prereq-match-loser'] \
+                prefix = 'Loser' if match['player1-is-prereq-match-loser'] \
                           else 'Winner'
                 player1 = prefix + ' of ' + prereq_match['identifier']
 
@@ -98,7 +98,7 @@ def sync_state():
                 prereq_match = challonge.matches.show(
                     tournament_id,
                     match['player2-prereq-match-id'])
-                prefix = 'Loser' if prereq_match['player2-is-prereq-match-loser'] \
+                prefix = 'Loser' if match['player2-is-prereq-match-loser'] \
                           else 'Winner'
                 player2 = prefix + ' of ' + prereq_match['identifier']
 
